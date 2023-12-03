@@ -13,6 +13,10 @@ def save_uploadedfile(uploadedfile):
          f.write(uploadedfile.getbuffer())
      return st.success("Saved File:{} to tempDir".format("img.jpg"))
 
+def get_public_ip():
+    response = requests.get('https://api.ipify.org').text
+    return response
+
 if st.button('Registrar'):
     st.write('Registrando usuario: ...')
     api_url = 'http://34.213.92.96:8000/registrar'
@@ -32,7 +36,8 @@ if st.button('Procesar'):
     api_url = 'http://34.213.92.96:8000/reconocer'
 
     files = {'imagen': open('img.jpg', 'rb')}
-    st.write('Imagen cargada')
+    pip = get_public_ip()
+    st.write(f'Imagen cargada a ser enviada desde: {pip}')
     response = requests.post(api_url, files=files)
 
     try:
