@@ -1,0 +1,10 @@
+*.swp
+*.vim
+*.swn
+*.swn
+*.swm
+*.swo
+*/__pycache__
+env/
+img.jpg
+uber_pickups.py

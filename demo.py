@@ -32,6 +32,7 @@ if st.button('Procesar'):
     api_url = 'http://34.213.92.96:8000/reconocer'
 
     files = {'imagen': open('img.jpg', 'rb')}
+    st.write('Imagen cargada')
     response = requests.post(api_url, files=files)
 
     try:
